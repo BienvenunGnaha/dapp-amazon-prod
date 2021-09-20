@@ -1,0 +1,207 @@
+{
+  "contractName": "Admin",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "member",
+          "type": "address"
+        }
+      ],
+      "name": "addMember",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"addMember\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Admin.sol\":\"Admin\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Admin.sol\":{\"keccak256\":\"0xd943c7b0c48481f0d368d8c1ae31ada19c6b42f5e00395e966f2308212f4fa1c\",\"urls\":[\"bzz-raw://cf3c1aa67c706a60d410d824a7f09a5456abae2366e7b5ffe909927353d0490a\",\"dweb:/ipfs/QmWajmrFxz2HXMjedv9KqzPq6vyngibTLUF2Hye12MP2Dz\"]},\"project:/contracts/Owner.sol\":{\"keccak256\":\"0xf397b2d51cb9acc46406b6fa73c14b20720660ee81deb06847e22486d8759cd3\",\"urls\":[\"bzz-raw://1dd9001a37f37c22a7a060b796d612d98a40176521790f54430480e7466ce382\",\"dweb:/ipfs/QmcixuLZzWuX4usSsZ342DDZgT1S1LBd34ajQTBsdrW8Yn\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101d2806100536000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063ca6d56dc14610030575b600080fd5b6100726004803603602081101561004657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610074565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610119576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610162603c913960400191505060405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505056fe566f7573206e276176657a20706173206578c3a9637574657220636574746520616374696f6e2063617220696c2065737420726573747265696e742ea265627a7a72315820df570450df1020d97285e5103944e743810dac7a9accccd0380326c2d278158d64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063ca6d56dc14610030575b600080fd5b6100726004803603602081101561004657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610074565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610119576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610162603c913960400191505060405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505056fe566f7573206e276176657a20706173206578c3a9637574657220636574746520616374696f6e2063617220696c2065737420726573747265696e742ea265627a7a72315820df570450df1020d97285e5103944e743810dac7a9accccd0380326c2d278158d64736f6c63430005100032",
+  "sourceMap": "58:28:0:-;;;152:10:2;144:5;;:18;;;;;;;;;;;;;;;;;;58:28:0;;;;;;",
+  "deployedSourceMap": "58:28:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;58:28:0;;;;;;;;;;;;;;;;;;;366:85:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;366:85:2;;;;;;;;;;;;;;;;;;;:::i;:::-;;;226:5;;;;;;;;;;;212:19;;:10;:19;;;204:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;443:1;425:7;:15;433:6;425:15;;;;;;;;;;;;;;;:19;;;;366:85;:::o",
+  "source": "pragma solidity >= 0.4.22 < 0.9.0;\nimport \"./Owner.sol\";\n\ncontract Admin is Owner{\n\n\n}",
+  "sourcePath": "/home/yanndev/Dev/Dapp/crypto-platform-backend/contracts/Admin.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Admin.sol",
+    "exportedSymbols": {
+      "Admin": [
+        5
+      ]
+    },
+    "id": 6,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:34:0"
+      },
+      {
+        "absolutePath": "project:/contracts/Owner.sol",
+        "file": "./Owner.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 6,
+        "sourceUnit": 83,
+        "src": "35:21:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "Owner",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 82,
+              "src": "76:5:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Owner_$82",
+                "typeString": "contract Owner"
+              }
+            },
+            "id": 4,
+            "nodeType": "InheritanceSpecifier",
+            "src": "76:5:0"
+          }
+        ],
+        "contractDependencies": [
+          82
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5,
+        "linearizedBaseContracts": [
+          5,
+          82
+        ],
+        "name": "Admin",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 6,
+        "src": "58:28:0"
+      }
+    ],
+    "src": "0:86:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Admin.sol",
+      "exportedSymbols": {
+        "Admin": [
+          5
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:34:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 83,
+          "absolutePath": "project:/contracts/Owner.sol",
+          "file": "./Owner.sol",
+          "scope": 6,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2,
+        "name": "ImportDirective",
+        "src": "35:21:0"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            82
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            5,
+            82
+          ],
+          "name": "Admin",
+          "nodes": [
+            null
+          ],
+          "scope": 6
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Owner",
+                  "referencedDeclaration": 82,
+                  "type": "contract Owner"
+                },
+                "id": 3,
+                "name": "UserDefinedTypeName",
+                "src": "76:5:0"
+              }
+            ],
+            "id": 4,
+            "name": "InheritanceSpecifier",
+            "src": "76:5:0"
+          }
+        ],
+        "id": 5,
+        "name": "ContractDefinition",
+        "src": "58:28:0"
+      }
+    ],
+    "id": 6,
+    "name": "SourceUnit",
+    "src": "0:86:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-09-19T00:48:25.551Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

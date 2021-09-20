@@ -1,0 +1,3801 @@
+{
+  "contractName": "Wallet",
+  "abi": [
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "member",
+          "type": "address"
+        }
+      ],
+      "name": "addMember",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "me",
+          "type": "address"
+        }
+      ],
+      "name": "isMe",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "__to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"addMember\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"me\",\"type\":\"address\"}],\"name\":\"isMe\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"__to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Wallet.sol\":\"Wallet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Owner.sol\":{\"keccak256\":\"0xf397b2d51cb9acc46406b6fa73c14b20720660ee81deb06847e22486d8759cd3\",\"urls\":[\"bzz-raw://1dd9001a37f37c22a7a060b796d612d98a40176521790f54430480e7466ce382\",\"dweb:/ipfs/QmcixuLZzWuX4usSsZ342DDZgT1S1LBd34ajQTBsdrW8Yn\"]},\"project:/contracts/Wallet.sol\":{\"keccak256\":\"0x570b95e6304d31f7f8676f4e02e04a9db6054873b06f330a46daed13edd6f0cb\",\"urls\":[\"bzz-raw://9b31d2af05b932ccdab87c6287c5f9cccf385f606714b115b4675b1e9abec89a\",\"dweb:/ipfs/QmeSu2sg4ug2e7GZyxHAXVN4SMQNckHjr3Jxm61GPokxcg\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506106ec806100536000396000f3fe60806040526004361061003f5760003560e01c806312065fe0146101b0578063abcd41a8146101db578063ca6d56dc14610244578063f3fef3a314610295575b61004761063d565b604051806040016040528034815260200142815250905034600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000016000828254019250508190555080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002016000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015481526020019081526020016000206000820151816000015560208201518160010155905050600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001016000815480929190600101919050555050005b3480156101bc57600080fd5b506101c56102f0565b6040518082815260200191505060405180910390f35b3480156101e757600080fd5b5061022a600480360360208110156101fe57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061039d565b604051808215151515815260200191505060405180910390f35b34801561025057600080fd5b506102936004803603602081101561026757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103d5565b005b3480156102a157600080fd5b506102ee600480360360408110156102b857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104c2565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610397576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610658603c913960400191505060405180910390fd5b47905090565b60008173ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16149050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461047a576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610658603c913960400191505060405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050565b6104cb8261039d565b61053d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f596f752063616e277420646f207468697320616374696f6e000000000000000081525060200191505060405180910390fd5b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050600081831115610595576000610598565b60015b9050806105f0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260248152602001806106946024913960400191505060405180910390fd5b8373ffffffffffffffffffffffffffffffffffffffff166108fc849081150290604051600060405180830381858888f19350505050158015610636573d6000803e3d6000fd5b5050505050565b60405180604001604052806000815260200160008152509056fe566f7573206e276176657a20706173206578c3a9637574657220636574746520616374696f6e2063617220696c2065737420726573747265696e742e596f752063616e2774207769746864726177206d6f7265207468616e20796f7520676574a265627a7a723158207267957ff6f36d0d86d248ac090e934cc668896c8ca527634f7c1ee6690e7d4464736f6c63430005100032",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c806312065fe0146101b0578063abcd41a8146101db578063ca6d56dc14610244578063f3fef3a314610295575b61004761063d565b604051806040016040528034815260200142815250905034600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000016000828254019250508190555080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002016000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015481526020019081526020016000206000820151816000015560208201518160010155905050600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001016000815480929190600101919050555050005b3480156101bc57600080fd5b506101c56102f0565b6040518082815260200191505060405180910390f35b3480156101e757600080fd5b5061022a600480360360208110156101fe57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061039d565b604051808215151515815260200191505060405180910390f35b34801561025057600080fd5b506102936004803603602081101561026757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103d5565b005b3480156102a157600080fd5b506102ee600480360360408110156102b857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104c2565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610397576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610658603c913960400191505060405180910390fd5b47905090565b60008173ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16149050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461047a576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603c815260200180610658603c913960400191505060405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555050565b6104cb8261039d565b61053d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f596f752063616e277420646f207468697320616374696f6e000000000000000081525060200191505060405180910390fd5b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001549050600081831115610595576000610598565b60015b9050806105f0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260248152602001806106946024913960400191505060405180910390fd5b8373ffffffffffffffffffffffffffffffffffffffff166108fc849081150290604051600060405180830381858888f19350505050158015610636573d6000803e3d6000fd5b5050505050565b60405180604001604052806000815260200160008152509056fe566f7573206e276176657a20706173206578c3a9637574657220636574746520616374696f6e2063617220696c2065737420726573747265696e742e596f752063616e2774207769746864726177206d6f7265207468616e20796f7520676574a265627a7a723158207267957ff6f36d0d86d248ac090e934cc668896c8ca527634f7c1ee6690e7d4464736f6c63430005100032",
+  "sourceMap": "57:1128:3:-;;;152:10:2;144:5;;:18;;;;;;;;;;;;;;;;;;57:1128:3;;;;;;",
+  "deployedSourceMap": "57:1128:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;831:22;;:::i;:::-;856:35;;;;;;;;864:9;856:35;;;;875:15;856:35;;;831:60;;937:9;901:7;:19;909:10;901:19;;;;;;;;;;;;;;;:32;;;:45;;;;;;;;;;;1020:7;956;:19;964:10;956:19;;;;;;;;;;;;;;;:28;;:61;985:7;:19;993:10;985:19;;;;;;;;;;;;;;;:31;;;956:61;;;;;;;;;;;:71;;;;;;;;;;;;;;;;;;;1037:7;:19;1045:10;1037:19;;;;;;;;;;;;;;;:31;;;:33;;;;;;;;;;;;;794:283;57:1128;1083:100;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1083:100:3;;;:::i;:::-;;;;;;;;;;;;;;;;;;;325:91;;8:9:-1;5:2;;;30:1;27;20:12;5:2;325:91:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;325:91:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;366:85:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;366:85:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;366:85:2;;;;;;;;;;;;;;;;;;;:::i;:::-;;422:366:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;422:366:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;422:366:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1083:100;1133:4;226:5:2;;;;;;;;;;;212:19;;:10;:19;;;204:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1155:21:3;1148:28;;1083:100;:::o;325:91::-;371:4;407:2;393:16;;:10;:16;;;386:23;;325:91;;;:::o;366:85:2:-;226:5;;;;;;;;;;;212:19;;:10;:19;;;204:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;443:1;425:7;:15;433:6;425:15;;;;;;;;;;;;;;;:19;;;;366:85;:::o;422:366:3:-;499:10;504:4;499;:10::i;:::-;491:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;548:17;568:7;:19;576:10;568:19;;;;;;;;;;;;;;;:32;;;548:52;;610:23;646:12;636:6;:22;;:37;;668:5;636:37;;;661:4;636:37;610:63;;691:18;683:67;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;760:4;:13;;:21;774:6;760:21;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;760:21:3;422:366;;;;:::o;57:1128::-;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.5.11 <0.9.0;\n\nimport \"./Owner.sol\";\n\ncontract Wallet is Owner{\n\n    struct Payment{\n        uint amount;\n        uint timestamp;\n    }\n\n    struct Balance{\n        uint totalBalance;\n        uint numPayments;\n        mapping(uint => Payment) payments;\n    }\n\n    mapping(address => Balance) wallets;\n\n    function isMe(address me) public view returns(bool){\n        return msg.sender == me;\n    }\n\n    function withdraw(address payable __to, uint amount) public{\n        require(isMe(__to), \"You can't do this action\");\n        uint user_balance = wallets[msg.sender].totalBalance;\n        bool can_start_withdraw = amount <= user_balance ? true : false;\n        require(can_start_withdraw, \"You can't withdraw more than you get\");\n        __to.transfer(amount);\n    }\n\n    function() external payable{\n        Payment memory payment = Payment(msg.value, block.timestamp);\n        wallets[msg.sender].totalBalance += msg.value;\n        wallets[msg.sender].payments[wallets[msg.sender].numPayments] = payment;\n        wallets[msg.sender].numPayments++;\n    }\n\n    function getBalance() public isOwner view returns(uint){\n        return address(this).balance;\n    }\n}",
+  "sourcePath": "/home/yanndev/Dev/Dapp/crypto-platform-backend/contracts/Wallet.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Wallet.sol",
+    "exportedSymbols": {
+      "Wallet": [
+        218
+      ]
+    },
+    "id": 219,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 84,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".11",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:3"
+      },
+      {
+        "absolutePath": "project:/contracts/Owner.sol",
+        "file": "./Owner.sol",
+        "id": 85,
+        "nodeType": "ImportDirective",
+        "scope": 219,
+        "sourceUnit": 83,
+        "src": "34:21:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 86,
+              "name": "Owner",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 82,
+              "src": "76:5:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Owner_$82",
+                "typeString": "contract Owner"
+              }
+            },
+            "id": 87,
+            "nodeType": "InheritanceSpecifier",
+            "src": "76:5:3"
+          }
+        ],
+        "contractDependencies": [
+          82
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 218,
+        "linearizedBaseContracts": [
+          218,
+          82
+        ],
+        "name": "Wallet",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Wallet.Payment",
+            "id": 92,
+            "members": [
+              {
+                "constant": false,
+                "id": 89,
+                "name": "amount",
+                "nodeType": "VariableDeclaration",
+                "scope": 92,
+                "src": "112:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 88,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 91,
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 92,
+                "src": "133:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 90,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "133:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Payment",
+            "nodeType": "StructDefinition",
+            "scope": 218,
+            "src": "88:66:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Wallet.Balance",
+            "id": 101,
+            "members": [
+              {
+                "constant": false,
+                "id": 94,
+                "name": "totalBalance",
+                "nodeType": "VariableDeclaration",
+                "scope": 101,
+                "src": "184:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 93,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "184:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 96,
+                "name": "numPayments",
+                "nodeType": "VariableDeclaration",
+                "scope": 101,
+                "src": "211:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 95,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "211:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 100,
+                "name": "payments",
+                "nodeType": "VariableDeclaration",
+                "scope": 101,
+                "src": "237:33:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Payment_$92_storage_$",
+                  "typeString": "mapping(uint256 => struct Wallet.Payment)"
+                },
+                "typeName": {
+                  "id": 99,
+                  "keyType": {
+                    "id": 97,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "245:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "237:24:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Payment_$92_storage_$",
+                    "typeString": "mapping(uint256 => struct Wallet.Payment)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 98,
+                    "name": "Payment",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 92,
+                    "src": "253:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Payment_$92_storage_ptr",
+                      "typeString": "struct Wallet.Payment"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Balance",
+            "nodeType": "StructDefinition",
+            "scope": 218,
+            "src": "160:117:3",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 105,
+            "name": "wallets",
+            "nodeType": "VariableDeclaration",
+            "scope": 218,
+            "src": "283:35:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+              "typeString": "mapping(address => struct Wallet.Balance)"
+            },
+            "typeName": {
+              "id": 104,
+              "keyType": {
+                "id": 102,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "291:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "283:27:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                "typeString": "mapping(address => struct Wallet.Balance)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 103,
+                "name": "Balance",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 101,
+                "src": "302:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Balance_$101_storage_ptr",
+                  "typeString": "struct Wallet.Balance"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 117,
+              "nodeType": "Block",
+              "src": "376:40:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 115,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 112,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 233,
+                        "src": "393:3:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 113,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "393:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 114,
+                      "name": "me",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 107,
+                      "src": "407:2:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "393:16:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 111,
+                  "id": 116,
+                  "nodeType": "Return",
+                  "src": "386:23:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 118,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isMe",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 107,
+                  "name": "me",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "339:10:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "339:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "338:12:3"
+            },
+            "returnParameters": {
+              "id": 111,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 110,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "371:4:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 109,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "371:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "370:6:3"
+            },
+            "scope": 218,
+            "src": "325:91:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 160,
+              "nodeType": "Block",
+              "src": "481:307:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 127,
+                            "name": "__to",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 120,
+                            "src": "504:4:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          ],
+                          "id": 126,
+                          "name": "isMe",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 118,
+                          "src": "499:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view returns (bool)"
+                          }
+                        },
+                        "id": 128,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "499:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "596f752063616e277420646f207468697320616374696f6e",
+                        "id": 129,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "511:26:3",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a8a8248b94ec0c491810bdd1e27414ea6c75d0b6d6418a9b5894f98a53ca9bff",
+                          "typeString": "literal_string \"You can't do this action\""
+                        },
+                        "value": "You can't do this action"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_a8a8248b94ec0c491810bdd1e27414ea6c75d0b6d6418a9b5894f98a53ca9bff",
+                          "typeString": "literal_string \"You can't do this action\""
+                        }
+                      ],
+                      "id": 125,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        236,
+                        237
+                      ],
+                      "referencedDeclaration": 237,
+                      "src": "491:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 130,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "491:47:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 131,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:47:3"
+                },
+                {
+                  "assignments": [
+                    133
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 133,
+                      "name": "user_balance",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 160,
+                      "src": "548:17:3",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 132,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "548:4:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 139,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 134,
+                        "name": "wallets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 105,
+                        "src": "568:7:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                          "typeString": "mapping(address => struct Wallet.Balance storage ref)"
+                        }
+                      },
+                      "id": 137,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 135,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 233,
+                          "src": "576:3:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 136,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "576:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "568:19:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Balance_$101_storage",
+                        "typeString": "struct Wallet.Balance storage ref"
+                      }
+                    },
+                    "id": 138,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "totalBalance",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 94,
+                    "src": "568:32:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "548:52:3"
+                },
+                {
+                  "assignments": [
+                    141
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 141,
+                      "name": "can_start_withdraw",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 160,
+                      "src": "610:23:3",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 140,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "610:4:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 148,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "condition": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 144,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "id": 142,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 122,
+                        "src": "636:6:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "<=",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "id": 143,
+                        "name": "user_balance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 133,
+                        "src": "646:12:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "636:22:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "falseExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 146,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "668:5:3",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "id": 147,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "Conditional",
+                    "src": "636:37:3",
+                    "trueExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 145,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "661:4:3",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "610:63:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 150,
+                        "name": "can_start_withdraw",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 141,
+                        "src": "691:18:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "596f752063616e2774207769746864726177206d6f7265207468616e20796f7520676574",
+                        "id": 151,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "711:38:3",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_7cef52f0fc948a79ff7b64518ab78ae31cffbaa2d5554e0660f0088094420b13",
+                          "typeString": "literal_string \"You can't withdraw more than you get\""
+                        },
+                        "value": "You can't withdraw more than you get"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_7cef52f0fc948a79ff7b64518ab78ae31cffbaa2d5554e0660f0088094420b13",
+                          "typeString": "literal_string \"You can't withdraw more than you get\""
+                        }
+                      ],
+                      "id": 149,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        236,
+                        237
+                      ],
+                      "referencedDeclaration": 237,
+                      "src": "683:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 152,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "683:67:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 153,
+                  "nodeType": "ExpressionStatement",
+                  "src": "683:67:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 157,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 122,
+                        "src": "774:6:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 154,
+                        "name": "__to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 120,
+                        "src": "760:4:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "id": 156,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "760:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "760:21:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 159,
+                  "nodeType": "ExpressionStatement",
+                  "src": "760:21:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 161,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 123,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "name": "__to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 161,
+                  "src": "440:20:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "440:15:3",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 122,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 161,
+                  "src": "462:11:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 121,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "462:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "439:35:3"
+            },
+            "returnParameters": {
+              "id": 124,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "481:0:3"
+            },
+            "scope": 218,
+            "src": "422:366:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 203,
+              "nodeType": "Block",
+              "src": "821:256:3",
+              "statements": [
+                {
+                  "assignments": [
+                    165
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 165,
+                      "name": "payment",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 203,
+                      "src": "831:22:3",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Payment_$92_memory_ptr",
+                        "typeString": "struct Wallet.Payment"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 164,
+                        "name": "Payment",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 92,
+                        "src": "831:7:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Payment_$92_storage_ptr",
+                          "typeString": "struct Wallet.Payment"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 172,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 167,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 233,
+                          "src": "864:3:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 168,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "864:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 169,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 223,
+                          "src": "875:5:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 170,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "875:15:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 166,
+                      "name": "Payment",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 92,
+                      "src": "856:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Payment_$92_storage_ptr_$",
+                        "typeString": "type(struct Wallet.Payment storage pointer)"
+                      }
+                    },
+                    "id": 171,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "856:35:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Payment_$92_memory",
+                      "typeString": "struct Wallet.Payment memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "831:60:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 180,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 173,
+                          "name": "wallets",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 105,
+                          "src": "901:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                            "typeString": "mapping(address => struct Wallet.Balance storage ref)"
+                          }
+                        },
+                        "id": 176,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 174,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 233,
+                            "src": "909:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 175,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "909:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "901:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Balance_$101_storage",
+                          "typeString": "struct Wallet.Balance storage ref"
+                        }
+                      },
+                      "id": 177,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "totalBalance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 94,
+                      "src": "901:32:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 178,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 233,
+                        "src": "937:3:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 179,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "value",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "937:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "901:45:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 181,
+                  "nodeType": "ExpressionStatement",
+                  "src": "901:45:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 194,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 182,
+                            "name": "wallets",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 105,
+                            "src": "956:7:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                              "typeString": "mapping(address => struct Wallet.Balance storage ref)"
+                            }
+                          },
+                          "id": 185,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 183,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 233,
+                              "src": "964:3:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 184,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "964:10:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "956:19:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Balance_$101_storage",
+                            "typeString": "struct Wallet.Balance storage ref"
+                          }
+                        },
+                        "id": 186,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "payments",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 100,
+                        "src": "956:28:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Payment_$92_storage_$",
+                          "typeString": "mapping(uint256 => struct Wallet.Payment storage ref)"
+                        }
+                      },
+                      "id": 192,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 187,
+                            "name": "wallets",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 105,
+                            "src": "985:7:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                              "typeString": "mapping(address => struct Wallet.Balance storage ref)"
+                            }
+                          },
+                          "id": 190,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 188,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 233,
+                              "src": "993:3:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 189,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "993:10:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "985:19:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Balance_$101_storage",
+                            "typeString": "struct Wallet.Balance storage ref"
+                          }
+                        },
+                        "id": 191,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "numPayments",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 96,
+                        "src": "985:31:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "956:61:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Payment_$92_storage",
+                        "typeString": "struct Wallet.Payment storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 193,
+                      "name": "payment",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 165,
+                      "src": "1020:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Payment_$92_memory_ptr",
+                        "typeString": "struct Wallet.Payment memory"
+                      }
+                    },
+                    "src": "956:71:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Payment_$92_storage",
+                      "typeString": "struct Wallet.Payment storage ref"
+                    }
+                  },
+                  "id": 195,
+                  "nodeType": "ExpressionStatement",
+                  "src": "956:71:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 201,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "1037:33:3",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 196,
+                          "name": "wallets",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 105,
+                          "src": "1037:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Balance_$101_storage_$",
+                            "typeString": "mapping(address => struct Wallet.Balance storage ref)"
+                          }
+                        },
+                        "id": 199,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 197,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 233,
+                            "src": "1045:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 198,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1045:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1037:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Balance_$101_storage",
+                          "typeString": "struct Wallet.Balance storage ref"
+                        }
+                      },
+                      "id": 200,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "numPayments",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 96,
+                      "src": "1037:31:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 202,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1037:33:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 204,
+            "implemented": true,
+            "kind": "fallback",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "802:2:3"
+            },
+            "returnParameters": {
+              "id": 163,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "821:0:3"
+            },
+            "scope": 218,
+            "src": "794:283:3",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 216,
+              "nodeType": "Block",
+              "src": "1138:45:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 212,
+                          "name": "this",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 253,
+                          "src": "1163:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_Wallet_$218",
+                            "typeString": "contract Wallet"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_Wallet_$218",
+                            "typeString": "contract Wallet"
+                          }
+                        ],
+                        "id": 211,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "1155:7:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": "address"
+                      },
+                      "id": 213,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1155:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "id": 214,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "balance",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "1155:21:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 210,
+                  "id": 215,
+                  "nodeType": "Return",
+                  "src": "1148:28:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 217,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 207,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 206,
+                  "name": "isOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 67,
+                  "src": "1112:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1112:7:3"
+              }
+            ],
+            "name": "getBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 205,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1102:2:3"
+            },
+            "returnParameters": {
+              "id": 210,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 209,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 217,
+                  "src": "1133:4:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 208,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1133:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1132:6:3"
+            },
+            "scope": 218,
+            "src": "1083:100:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 219,
+        "src": "57:1128:3"
+      }
+    ],
+    "src": "0:1185:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Wallet.sol",
+      "exportedSymbols": {
+        "Wallet": [
+          218
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".11",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 84,
+        "name": "PragmaDirective",
+        "src": "0:32:3"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 83,
+          "absolutePath": "project:/contracts/Owner.sol",
+          "file": "./Owner.sol",
+          "scope": 219,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 85,
+        "name": "ImportDirective",
+        "src": "34:21:3"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            82
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            218,
+            82
+          ],
+          "name": "Wallet",
+          "scope": 219
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Owner",
+                  "referencedDeclaration": 82,
+                  "type": "contract Owner"
+                },
+                "id": 86,
+                "name": "UserDefinedTypeName",
+                "src": "76:5:3"
+              }
+            ],
+            "id": 87,
+            "name": "InheritanceSpecifier",
+            "src": "76:5:3"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Wallet.Payment",
+              "name": "Payment",
+              "scope": 218,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "amount",
+                  "scope": 92,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 88,
+                    "name": "ElementaryTypeName",
+                    "src": "112:4:3"
+                  }
+                ],
+                "id": 89,
+                "name": "VariableDeclaration",
+                "src": "112:11:3"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "timestamp",
+                  "scope": 92,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 90,
+                    "name": "ElementaryTypeName",
+                    "src": "133:4:3"
+                  }
+                ],
+                "id": 91,
+                "name": "VariableDeclaration",
+                "src": "133:14:3"
+              }
+            ],
+            "id": 92,
+            "name": "StructDefinition",
+            "src": "88:66:3"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Wallet.Balance",
+              "name": "Balance",
+              "scope": 218,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "totalBalance",
+                  "scope": 101,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 93,
+                    "name": "ElementaryTypeName",
+                    "src": "184:4:3"
+                  }
+                ],
+                "id": 94,
+                "name": "VariableDeclaration",
+                "src": "184:17:3"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "numPayments",
+                  "scope": 101,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 95,
+                    "name": "ElementaryTypeName",
+                    "src": "211:4:3"
+                  }
+                ],
+                "id": 96,
+                "name": "VariableDeclaration",
+                "src": "211:16:3"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "payments",
+                  "scope": 101,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "mapping(uint256 => struct Wallet.Payment)",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "type": "mapping(uint256 => struct Wallet.Payment)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 97,
+                        "name": "ElementaryTypeName",
+                        "src": "245:4:3"
+                      },
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "Payment",
+                          "referencedDeclaration": 92,
+                          "type": "struct Wallet.Payment"
+                        },
+                        "id": 98,
+                        "name": "UserDefinedTypeName",
+                        "src": "253:7:3"
+                      }
+                    ],
+                    "id": 99,
+                    "name": "Mapping",
+                    "src": "237:24:3"
+                  }
+                ],
+                "id": 100,
+                "name": "VariableDeclaration",
+                "src": "237:33:3"
+              }
+            ],
+            "id": 101,
+            "name": "StructDefinition",
+            "src": "160:117:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "wallets",
+              "scope": 218,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct Wallet.Balance)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct Wallet.Balance)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 102,
+                    "name": "ElementaryTypeName",
+                    "src": "291:7:3"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Balance",
+                      "referencedDeclaration": 101,
+                      "type": "struct Wallet.Balance"
+                    },
+                    "id": 103,
+                    "name": "UserDefinedTypeName",
+                    "src": "302:7:3"
+                  }
+                ],
+                "id": 104,
+                "name": "Mapping",
+                "src": "283:27:3"
+              }
+            ],
+            "id": 105,
+            "name": "VariableDeclaration",
+            "src": "283:35:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isMe",
+              "scope": 218,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "me",
+                      "scope": 118,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 106,
+                        "name": "ElementaryTypeName",
+                        "src": "339:7:3"
+                      }
+                    ],
+                    "id": 107,
+                    "name": "VariableDeclaration",
+                    "src": "339:10:3"
+                  }
+                ],
+                "id": 108,
+                "name": "ParameterList",
+                "src": "338:12:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 118,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 109,
+                        "name": "ElementaryTypeName",
+                        "src": "371:4:3"
+                      }
+                    ],
+                    "id": 110,
+                    "name": "VariableDeclaration",
+                    "src": "371:4:3"
+                  }
+                ],
+                "id": 111,
+                "name": "ParameterList",
+                "src": "370:6:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 111
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "==",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 233,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 112,
+                                "name": "Identifier",
+                                "src": "393:3:3"
+                              }
+                            ],
+                            "id": 113,
+                            "name": "MemberAccess",
+                            "src": "393:10:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 107,
+                              "type": "address",
+                              "value": "me"
+                            },
+                            "id": 114,
+                            "name": "Identifier",
+                            "src": "407:2:3"
+                          }
+                        ],
+                        "id": 115,
+                        "name": "BinaryOperation",
+                        "src": "393:16:3"
+                      }
+                    ],
+                    "id": 116,
+                    "name": "Return",
+                    "src": "386:23:3"
+                  }
+                ],
+                "id": 117,
+                "name": "Block",
+                "src": "376:40:3"
+              }
+            ],
+            "id": 118,
+            "name": "FunctionDefinition",
+            "src": "325:91:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "withdraw",
+              "scope": 218,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "__to",
+                      "scope": 161,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address payable",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "payable",
+                          "type": "address payable"
+                        },
+                        "id": 119,
+                        "name": "ElementaryTypeName",
+                        "src": "440:15:3"
+                      }
+                    ],
+                    "id": 120,
+                    "name": "VariableDeclaration",
+                    "src": "440:20:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "amount",
+                      "scope": 161,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 121,
+                        "name": "ElementaryTypeName",
+                        "src": "462:4:3"
+                      }
+                    ],
+                    "id": 122,
+                    "name": "VariableDeclaration",
+                    "src": "462:11:3"
+                  }
+                ],
+                "id": 123,
+                "name": "ParameterList",
+                "src": "439:35:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 124,
+                "name": "ParameterList",
+                "src": "481:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_a8a8248b94ec0c491810bdd1e27414ea6c75d0b6d6418a9b5894f98a53ca9bff",
+                                  "typeString": "literal_string \"You can't do this action\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                236,
+                                237
+                              ],
+                              "referencedDeclaration": 237,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 125,
+                            "name": "Identifier",
+                            "src": "491:7:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address_payable",
+                                      "typeString": "address payable"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 118,
+                                  "type": "function (address) view returns (bool)",
+                                  "value": "isMe"
+                                },
+                                "id": 126,
+                                "name": "Identifier",
+                                "src": "499:4:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 120,
+                                  "type": "address payable",
+                                  "value": "__to"
+                                },
+                                "id": 127,
+                                "name": "Identifier",
+                                "src": "504:4:3"
+                              }
+                            ],
+                            "id": 128,
+                            "name": "FunctionCall",
+                            "src": "499:10:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "596f752063616e277420646f207468697320616374696f6e",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"You can't do this action\"",
+                              "value": "You can't do this action"
+                            },
+                            "id": 129,
+                            "name": "Literal",
+                            "src": "511:26:3"
+                          }
+                        ],
+                        "id": 130,
+                        "name": "FunctionCall",
+                        "src": "491:47:3"
+                      }
+                    ],
+                    "id": 131,
+                    "name": "ExpressionStatement",
+                    "src": "491:47:3"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        133
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "user_balance",
+                          "scope": 160,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 132,
+                            "name": "ElementaryTypeName",
+                            "src": "548:4:3"
+                          }
+                        ],
+                        "id": 133,
+                        "name": "VariableDeclaration",
+                        "src": "548:17:3"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "totalBalance",
+                          "referencedDeclaration": 94,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Wallet.Balance storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 105,
+                                  "type": "mapping(address => struct Wallet.Balance storage ref)",
+                                  "value": "wallets"
+                                },
+                                "id": 134,
+                                "name": "Identifier",
+                                "src": "568:7:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 233,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 135,
+                                    "name": "Identifier",
+                                    "src": "576:3:3"
+                                  }
+                                ],
+                                "id": 136,
+                                "name": "MemberAccess",
+                                "src": "576:10:3"
+                              }
+                            ],
+                            "id": 137,
+                            "name": "IndexAccess",
+                            "src": "568:19:3"
+                          }
+                        ],
+                        "id": 138,
+                        "name": "MemberAccess",
+                        "src": "568:32:3"
+                      }
+                    ],
+                    "id": 139,
+                    "name": "VariableDeclarationStatement",
+                    "src": "548:52:3"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        141
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "can_start_withdraw",
+                          "scope": 160,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bool",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bool",
+                              "type": "bool"
+                            },
+                            "id": 140,
+                            "name": "ElementaryTypeName",
+                            "src": "610:4:3"
+                          }
+                        ],
+                        "id": 141,
+                        "name": "VariableDeclaration",
+                        "src": "610:23:3"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "<=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 122,
+                                  "type": "uint256",
+                                  "value": "amount"
+                                },
+                                "id": 142,
+                                "name": "Identifier",
+                                "src": "636:6:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 133,
+                                  "type": "uint256",
+                                  "value": "user_balance"
+                                },
+                                "id": 143,
+                                "name": "Identifier",
+                                "src": "646:12:3"
+                              }
+                            ],
+                            "id": 144,
+                            "name": "BinaryOperation",
+                            "src": "636:22:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 145,
+                            "name": "Literal",
+                            "src": "661:4:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c7365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "false"
+                            },
+                            "id": 146,
+                            "name": "Literal",
+                            "src": "668:5:3"
+                          }
+                        ],
+                        "id": 147,
+                        "name": "Conditional",
+                        "src": "636:37:3"
+                      }
+                    ],
+                    "id": 148,
+                    "name": "VariableDeclarationStatement",
+                    "src": "610:63:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_7cef52f0fc948a79ff7b64518ab78ae31cffbaa2d5554e0660f0088094420b13",
+                                  "typeString": "literal_string \"You can't withdraw more than you get\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                236,
+                                237
+                              ],
+                              "referencedDeclaration": 237,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 149,
+                            "name": "Identifier",
+                            "src": "683:7:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 141,
+                              "type": "bool",
+                              "value": "can_start_withdraw"
+                            },
+                            "id": 150,
+                            "name": "Identifier",
+                            "src": "691:18:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "596f752063616e2774207769746864726177206d6f7265207468616e20796f7520676574",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"You can't withdraw more than you get\"",
+                              "value": "You can't withdraw more than you get"
+                            },
+                            "id": 151,
+                            "name": "Literal",
+                            "src": "711:38:3"
+                          }
+                        ],
+                        "id": 152,
+                        "name": "FunctionCall",
+                        "src": "683:67:3"
+                      }
+                    ],
+                    "id": 153,
+                    "name": "ExpressionStatement",
+                    "src": "683:67:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transfer",
+                              "referencedDeclaration": null,
+                              "type": "function (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 120,
+                                  "type": "address payable",
+                                  "value": "__to"
+                                },
+                                "id": 154,
+                                "name": "Identifier",
+                                "src": "760:4:3"
+                              }
+                            ],
+                            "id": 156,
+                            "name": "MemberAccess",
+                            "src": "760:13:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 122,
+                              "type": "uint256",
+                              "value": "amount"
+                            },
+                            "id": 157,
+                            "name": "Identifier",
+                            "src": "774:6:3"
+                          }
+                        ],
+                        "id": 158,
+                        "name": "FunctionCall",
+                        "src": "760:21:3"
+                      }
+                    ],
+                    "id": 159,
+                    "name": "ExpressionStatement",
+                    "src": "760:21:3"
+                  }
+                ],
+                "id": 160,
+                "name": "Block",
+                "src": "481:307:3"
+              }
+            ],
+            "id": 161,
+            "name": "FunctionDefinition",
+            "src": "422:366:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "fallback",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 218,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 162,
+                "name": "ParameterList",
+                "src": "802:2:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 163,
+                "name": "ParameterList",
+                "src": "821:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        165
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "payment",
+                          "scope": 203,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct Wallet.Payment",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Payment",
+                              "referencedDeclaration": 92,
+                              "type": "struct Wallet.Payment"
+                            },
+                            "id": 164,
+                            "name": "UserDefinedTypeName",
+                            "src": "831:7:3"
+                          }
+                        ],
+                        "id": 165,
+                        "name": "VariableDeclaration",
+                        "src": "831:22:3"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "struct Wallet.Payment memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 92,
+                              "type": "type(struct Wallet.Payment storage pointer)",
+                              "value": "Payment"
+                            },
+                            "id": 166,
+                            "name": "Identifier",
+                            "src": "856:7:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "value",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 233,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 167,
+                                "name": "Identifier",
+                                "src": "864:3:3"
+                              }
+                            ],
+                            "id": 168,
+                            "name": "MemberAccess",
+                            "src": "864:9:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "timestamp",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 223,
+                                  "type": "block",
+                                  "value": "block"
+                                },
+                                "id": 169,
+                                "name": "Identifier",
+                                "src": "875:5:3"
+                              }
+                            ],
+                            "id": 170,
+                            "name": "MemberAccess",
+                            "src": "875:15:3"
+                          }
+                        ],
+                        "id": 171,
+                        "name": "FunctionCall",
+                        "src": "856:35:3"
+                      }
+                    ],
+                    "id": 172,
+                    "name": "VariableDeclarationStatement",
+                    "src": "831:60:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "+=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "totalBalance",
+                              "referencedDeclaration": 94,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Wallet.Balance storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 105,
+                                      "type": "mapping(address => struct Wallet.Balance storage ref)",
+                                      "value": "wallets"
+                                    },
+                                    "id": 173,
+                                    "name": "Identifier",
+                                    "src": "901:7:3"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sender",
+                                      "referencedDeclaration": null,
+                                      "type": "address payable"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 233,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 174,
+                                        "name": "Identifier",
+                                        "src": "909:3:3"
+                                      }
+                                    ],
+                                    "id": 175,
+                                    "name": "MemberAccess",
+                                    "src": "909:10:3"
+                                  }
+                                ],
+                                "id": 176,
+                                "name": "IndexAccess",
+                                "src": "901:19:3"
+                              }
+                            ],
+                            "id": 177,
+                            "name": "MemberAccess",
+                            "src": "901:32:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "value",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 233,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 178,
+                                "name": "Identifier",
+                                "src": "937:3:3"
+                              }
+                            ],
+                            "id": 179,
+                            "name": "MemberAccess",
+                            "src": "937:9:3"
+                          }
+                        ],
+                        "id": 180,
+                        "name": "Assignment",
+                        "src": "901:45:3"
+                      }
+                    ],
+                    "id": 181,
+                    "name": "ExpressionStatement",
+                    "src": "901:45:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct Wallet.Payment storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct Wallet.Payment storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "payments",
+                                  "referencedDeclaration": 100,
+                                  "type": "mapping(uint256 => struct Wallet.Payment storage ref)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct Wallet.Balance storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 105,
+                                          "type": "mapping(address => struct Wallet.Balance storage ref)",
+                                          "value": "wallets"
+                                        },
+                                        "id": 182,
+                                        "name": "Identifier",
+                                        "src": "956:7:3"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "sender",
+                                          "referencedDeclaration": null,
+                                          "type": "address payable"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 233,
+                                              "type": "msg",
+                                              "value": "msg"
+                                            },
+                                            "id": 183,
+                                            "name": "Identifier",
+                                            "src": "964:3:3"
+                                          }
+                                        ],
+                                        "id": 184,
+                                        "name": "MemberAccess",
+                                        "src": "964:10:3"
+                                      }
+                                    ],
+                                    "id": 185,
+                                    "name": "IndexAccess",
+                                    "src": "956:19:3"
+                                  }
+                                ],
+                                "id": 186,
+                                "name": "MemberAccess",
+                                "src": "956:28:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "numPayments",
+                                  "referencedDeclaration": 96,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct Wallet.Balance storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 105,
+                                          "type": "mapping(address => struct Wallet.Balance storage ref)",
+                                          "value": "wallets"
+                                        },
+                                        "id": 187,
+                                        "name": "Identifier",
+                                        "src": "985:7:3"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "sender",
+                                          "referencedDeclaration": null,
+                                          "type": "address payable"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 233,
+                                              "type": "msg",
+                                              "value": "msg"
+                                            },
+                                            "id": 188,
+                                            "name": "Identifier",
+                                            "src": "993:3:3"
+                                          }
+                                        ],
+                                        "id": 189,
+                                        "name": "MemberAccess",
+                                        "src": "993:10:3"
+                                      }
+                                    ],
+                                    "id": 190,
+                                    "name": "IndexAccess",
+                                    "src": "985:19:3"
+                                  }
+                                ],
+                                "id": 191,
+                                "name": "MemberAccess",
+                                "src": "985:31:3"
+                              }
+                            ],
+                            "id": 192,
+                            "name": "IndexAccess",
+                            "src": "956:61:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 165,
+                              "type": "struct Wallet.Payment memory",
+                              "value": "payment"
+                            },
+                            "id": 193,
+                            "name": "Identifier",
+                            "src": "1020:7:3"
+                          }
+                        ],
+                        "id": 194,
+                        "name": "Assignment",
+                        "src": "956:71:3"
+                      }
+                    ],
+                    "id": 195,
+                    "name": "ExpressionStatement",
+                    "src": "956:71:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "++",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "numPayments",
+                              "referencedDeclaration": 96,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Wallet.Balance storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 105,
+                                      "type": "mapping(address => struct Wallet.Balance storage ref)",
+                                      "value": "wallets"
+                                    },
+                                    "id": 196,
+                                    "name": "Identifier",
+                                    "src": "1037:7:3"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sender",
+                                      "referencedDeclaration": null,
+                                      "type": "address payable"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 233,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 197,
+                                        "name": "Identifier",
+                                        "src": "1045:3:3"
+                                      }
+                                    ],
+                                    "id": 198,
+                                    "name": "MemberAccess",
+                                    "src": "1045:10:3"
+                                  }
+                                ],
+                                "id": 199,
+                                "name": "IndexAccess",
+                                "src": "1037:19:3"
+                              }
+                            ],
+                            "id": 200,
+                            "name": "MemberAccess",
+                            "src": "1037:31:3"
+                          }
+                        ],
+                        "id": 201,
+                        "name": "UnaryOperation",
+                        "src": "1037:33:3"
+                      }
+                    ],
+                    "id": 202,
+                    "name": "ExpressionStatement",
+                    "src": "1037:33:3"
+                  }
+                ],
+                "id": 203,
+                "name": "Block",
+                "src": "821:256:3"
+              }
+            ],
+            "id": 204,
+            "name": "FunctionDefinition",
+            "src": "794:283:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "getBalance",
+              "scope": 218,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 205,
+                "name": "ParameterList",
+                "src": "1102:2:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 217,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 208,
+                        "name": "ElementaryTypeName",
+                        "src": "1133:4:3"
+                      }
+                    ],
+                    "id": 209,
+                    "name": "VariableDeclaration",
+                    "src": "1133:4:3"
+                  }
+                ],
+                "id": 210,
+                "name": "ParameterList",
+                "src": "1132:6:3"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 67,
+                      "type": "modifier ()",
+                      "value": "isOwner"
+                    },
+                    "id": 206,
+                    "name": "Identifier",
+                    "src": "1112:7:3"
+                  }
+                ],
+                "id": 207,
+                "name": "ModifierInvocation",
+                "src": "1112:7:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 210
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "balance",
+                          "referencedDeclaration": null,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "address payable",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_Wallet_$218",
+                                      "typeString": "contract Wallet"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)",
+                                  "value": "address"
+                                },
+                                "id": 211,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1155:7:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 253,
+                                  "type": "contract Wallet",
+                                  "value": "this"
+                                },
+                                "id": 212,
+                                "name": "Identifier",
+                                "src": "1163:4:3"
+                              }
+                            ],
+                            "id": 213,
+                            "name": "FunctionCall",
+                            "src": "1155:13:3"
+                          }
+                        ],
+                        "id": 214,
+                        "name": "MemberAccess",
+                        "src": "1155:21:3"
+                      }
+                    ],
+                    "id": 215,
+                    "name": "Return",
+                    "src": "1148:28:3"
+                  }
+                ],
+                "id": 216,
+                "name": "Block",
+                "src": "1138:45:3"
+              }
+            ],
+            "id": 217,
+            "name": "FunctionDefinition",
+            "src": "1083:100:3"
+          }
+        ],
+        "id": 218,
+        "name": "ContractDefinition",
+        "src": "57:1128:3"
+      }
+    ],
+    "id": 219,
+    "name": "SourceUnit",
+    "src": "0:1185:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "97": {
+      "events": {},
+      "links": {},
+      "address": "0x4F2a1764d6804D6Cd1EAef49Bd43D26A091Ca6FF",
+      "transactionHash": "0x765a925970a11124b1b0e8f962ac52667be257c3f254ef03c7e4a90b9a79bea1"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x3015C674A156c3bbE126458D62017B6130D68376",
+      "transactionHash": "0x0d028216d2cf6fb38c7dbf62918997cbf647743ddbcd8e78fdc53e401e110bc5"
+    }
+  },
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-09-20T04:35:13.784Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
